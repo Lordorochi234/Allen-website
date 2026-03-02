@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephanie Allen | Certified Court Reporter</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0d1b2a;--gold:#b8973e;--gold-light:#d4b46a;--cream:#faf8f4;--gray-light:#f4f2ee;--gray-mid:#e8e4dc;--text:#1c1c1c;--muted:#6b6b6b;--white:#fff}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.7}
+@media print{.no-print{display:none!important}body{background:#fff}}
+/* TOPBAR */
+.topbar{background:var(--navy);padding:10px 0;text-align:center}
+.topbar p{color:var(--gold-light);font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+/* HERO */
+.hero{background:var(--navy);padding:70px 20px 60px;display:flex;justify-content:center}
+.hero-inner{max-width:900px;width:100%;display:flex;align-items:center;gap:50px}
+.photo-wrap{flex-shrink:0;width:160px;height:160px;border-radius:50%;border:4px solid var(--gold);overflow:hidden;background:#1e2f42;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.photo-wrap:hover .overlay{opacity:1}
+.overlay{position:absolute;inset:0;background:rgba(13,27,42,.75);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;border-radius:50%}
+.overlay span{color:var(--gold-light);font-size:12px;font-weight:500;text-align:center;padding:0 10px;margin-top:5px}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.placeholder{display:flex;flex-direction:column;align-items:center;gap:8px}
+.placeholder span{color:#5a7a9a;font-size:11px;text-align:center;line-height:1.4}
+#photoInput{display:none}
+.hero-text h1{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.2}
+.title-line{color:var(--gold);font-size:14px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;margin-top:6px;margin-bottom:18px}
+.hero-text p{color:#a8b8c8;font-size:15px;max-width:520px;line-height:1.8}
+.cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{background:var(--gold);color:var(--navy);padding:12px 28px;border-radius:3px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.5px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s}
+.btn:hover{background:var(--gold-light)}
+.btn-o{border:1.5px solid #3a5068;color:#a8b8c8;padding:12px 28px;border-radius:3px;font-weight:500;font-size:14px;text-decoration:none;letter-spacing:.5px;cursor:pointer;background:transparent;transition:all .2s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+/* STATS */
+.stats{background:var(--gold);padding:22px 20px}
+.stats-in{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap}
+.stat{text-align:center;color:var(--navy)}
+.stat strong{display:block;font-family:'Playfair Display',serif;font-size:26px;font-weight:700}
+.stat span{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:.8}
+/* SECTIONS */
+section{padding:60px 20px}
+.wrap{max-width:900px;margin:0 auto}
+.lbl{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--navy);margin-bottom:30px}
+.divider{width:50px;height:3px;background:var(--gold);margin-bottom:30px;border-radius:2px}
+/* SERVICES */
+.services-bg{background:var(--white)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.card{border:1px solid var(--gray-mid);border-top:3px solid var(--gold);padding:28px 24px;border-radius:2px;background:var(--cream);transition:box-shadow .2s}
+.card:hover{box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.card-icon{font-size:28px;margin-bottom:14px}
+.card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:10px}
+.card p{font-size:14px;color:var(--muted);line-height:1.7}
+/* RATES */
+.rates-bg{background:var(--gray-light)}
+table{width:100%;border-collapse:collapse;background:var(--white);border-radius:4px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.06)}
+thead{background:var(--navy);color:#fff}
+thead th{padding:16px 20px;text-align:left;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+tbody tr{border-bottom:1px solid var(--gray-mid);transition:background .15s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--gray-light)}
+td{padding:16px 20px;font-size:14px;color:var(--text)}
+td:last-child{font-weight:600;color:var(--navy)}
+.note{margin-top:16px;font-size:13px;color:var(--muted);font-style:italic}
+.badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px}
+/* CREDS */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.cc{background:var(--white);border:1px solid var(--gray-mid);padding:22px 20px;border-radius:3px;display:flex;align-items:flex-start;gap:14px}
+.ci{width:40px;height:40px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.cc h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.cc p{font-size:13px;color:var(--muted)}
+/* SPECS */
+.spec-bg{background:var(--navy)}
+.spec-bg .stitle{color:#fff}
+.spec-bg .lbl{color:var(--gold-light)}
+.tags{display:flex;flex-wrap:wrap;gap:12px}
+.tag{background:rgba(184,151,62,.15);border:1px solid rgba(184,151,62,.4);color:var(--gold-light);padding:8px 18px;border-radius:2px;font-size:14px;font-weight:500}
+/* CONTACT */
+.contact-bg{background:var(--white)}
+.cg2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:620px){.cg2{grid-template-columns:1fr}}
+.ci2{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+.cion{width:44px;height:44px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.ci2 strong{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.ci2 a,.ci2 span{color:var(--text);text-decoration:none;font-size:15px}
+.ci2 a:hover{color:var(--gold)}
+.callout{background:var(--gray-light);border-left:4px solid var(--gold);padding:20px 24px;border-radius:2px}
+.callout h4{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:10px}
+.callout p{font-size:14px;color:var(--muted);line-height:1.7}
+/* DOWNLOAD */
+.dl-banner{background:linear-gradient(135deg,var(--navy),#1a3a5c);padding:40px 20px;text-align:center}
+.dl-banner h3{font-family:'Playfair Display',serif;color:#fff;font-size:22px;margin-bottom:10px}
+.dl-banner p{color:#a8b8c8;font-size:14px;margin-bottom:22px}
+/* FOOTER */
+footer{background:#080f16;padding:28px 20px;text-align:center}
+footer p{color:#4a6a8a;font-size:13px}
+footer span{color:var(--gold);font-weight:600}
+/* RESPONSIVE */
+@media(max-width:680px){.hero-inner{flex-direction:column;text-align:center;gap:28px}.cta{justify-content:center}.hero-text p{margin:0 auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><p>Certified Court Reporter &nbsp;|&nbsp; Available Statewide &nbsp;|&nbsp; Rush Transcripts Available</p></div>
+
+<div class="hero">
+<div class="hero-inner">
+  <div class="photo-wrap" onclick="document.getElementById('photoInput').click()">
+    <div id="photoDisplay">
+      <div class="placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="#3a6a9a" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+        <span>Click to Upload<br>Your Photo</span>
+      </div>
+    </div>
+    <div class="overlay">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#d4b46a" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+      <span>Change Photo</span>
+    </div>
+  </div>
+  <input type="file" id="photoInput" accept="image/*" onchange="handlePhoto(this)">
+
+  <div class="hero-text">
+    <p class="title-line">Certified Professional Court Reporter</p>
+    <h1>Stephanie Allen</h1>
+    <p>Delivering precise, confidential, and timely transcription services to law firms, attorneys, and judicial proceedings. Trusted by legal professionals for accuracy and professionalism.</p>
+    <div class="cta">
+      <a href="#contact" class="btn">&#9993;&nbsp; Request Services</a>
+      <button class="btn-o" onclick="window.print()">&#11015; Download Portfolio</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="stats"><div class="stats-in">
+  <div class="stat"><strong>99.9%</strong><span>Accuracy Rate</span></div>
+  <div class="stat"><strong>15+</strong><span>Years Experience</span></div>
+  <div class="stat"><strong>24hr</strong><span>Rush Turnaround</span></div>
+  <div class="stat"><strong>500+</strong><span>Cases Completed</span></div>
+</div></div>
+
+<section class="services-bg"><div class="wrap">
+  <p class="lbl">What I Offer</p>
+  <h2 class="stitle">Professional Services</h2>
+  <div class="divider"></div>
+  <div class="grid">
+    <div class="card"><div class="card-icon">⚖️</div><h3>Deposition Reporting</h3><p>Accurate verbatim transcription of depositions for civil and criminal proceedings, with certified transcripts delivered on time.</p></div>
+    <div class="card"><div class="card-icon">🏛️</div><h3>Court Proceedings</h3><p>Official record-keeping for trials, hearings, and arbitrations. Certified copies available for all parties.</p></div>
+    <div class="card"><div class="card-icon">📝</div><h3>Transcript Production</h3><p>Standard and expedited transcripts in PDF, ASCII, and e-Transcript formats compatible with all legal software.</p></div>
+    <div class="card"><div class="card-icon">🎙️</div><h3>Realtime Reporting</h3><p>Live streaming text to attorneys' laptops or tablets during proceedings for immediate review and annotation.</p></div>
+    <div class="card"><div class="card-icon">📋</div><h3>Scopist &amp; Proofreading</h3><p>Detailed review and editing of steno notes and draft transcripts for maximum accuracy and professional presentation.</p></div>
+    <div class="card"><div class="card-icon">💼</div><h3>Remote &amp; Video Depositions</h3><p>Seamless reporting for Zoom, WebEx, and Teams with synchronized video and transcript delivery.</p></div>
+  </div>
+</div></section>
+
+<section class="rates-bg"><div class="wrap">
+  <p class="lbl">Transparent Pricing</p>
+  <h2 class="stitle">Rate Schedule</h2>
+  <div class="divider"></div>
+  <table>
+    <thead><tr><th>Service</th><th>Description</th><th>Rate</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Original Transcript</strong></td><td>Per page — standard delivery (7–10 business days)</td><td>$4.50 / page</td></tr>
+      <tr><td><strong>Copy Transcript</strong></td><td>Per page — for additional counsel or parties</td><td>$2.25 / page</td></tr>
+      <tr><td><strong>Expedited — 3 Day</strong></td><td>Delivered within 3 business days</td><td>$6.75 / page</td></tr>
+      <tr><td><strong>Rush — 24 Hour</strong> <span class="badge">Popular</span></td><td>Next-day delivery guaranteed</td><td>$9.00 / page</td></tr>
+      <tr><td><strong>Realtime Streaming</strong></td><td>Live feed to attorneys during proceedings</td><td>$2.50 / page</td></tr>
+      <tr><td><strong>Appearance Fee</strong></td><td>Half-day (up to 4 hrs) / Full-day</td><td>$85 / $150</td></tr>
+      <tr><td><strong>Remote/Video Deposition</strong></td><td>Zoom, Teams, WebEx setup &amp; reporting</td><td>$75 flat + per page</td></tr>
+      <tr><td><strong>Exhibits</strong></td><td>Per exhibit scanned and attached</td><td>$0.50 / page</td></tr>
+    </tbody>
+  </table>
+  <p class="note">* Rates are per page (25 lines/65 characters). Travel outside [Your City] may incur mileage at $0.67/mile. Volume discounts available for firms booking 10+ depositions/month. Confirm rates at time of booking.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="lbl">Qualifications</p>
+  <h2 class="stitle">Credentials &amp; Certifications</h2>
+  <div class="divider"></div>
+  <div class="cg">
+    <div class="cc"><div class="ci">🎓</div><div><h4>RPR Certified</h4><p>Registered Professional Reporter — NCRA</p></div></div>
+    <div class="cc"><div class="ci">⚡</div><div><h4>RMR Certified</h4><p>Registered Merit Reporter — 97.5% accuracy</p></div></div>
+    <div class="cc"><div class="ci">📡</div><div><h4>CRR Certified</h4><p>Certified Realtime Reporter — NCRA</p></div></div>
+    <div class="cc"><div class="ci">🏅</div><div><h4>State Licensed</h4><p>Licensed Court Reporter — [Your State]</p></div></div>
+    <div class="cc"><div class="ci">🔒</div><div><h4>HIPAA Compliant</h4><p>Certified in confidential handling of sensitive records</p></div></div>
+    <div class="cc"><div class="ci">🤝</div><div><h4>NCRA Member</h4><p>National Court Reporters Association in good standing</p></div></div>
+  </div>
+</div></section>
+
+<section class="spec-bg"><div class="wrap">
+  <p class="lbl">Areas of Focus</p>
+  <h2 class="stitle">Legal Specialties</h2>
+  <div class="divider"></div>
+  <div class="tags">
+    <span class="tag">Personal Injury</span><span class="tag">Medical Malpractice</span><span class="tag">Workers' Compensation</span><span class="tag">Civil Litigation</span><span class="tag">Criminal Defense</span><span class="tag">Family Law</span><span class="tag">Corporate &amp; Commercial</span><span class="tag">Insurance Defense</span><span class="tag">Employment Law</span><span class="tag">Intellectual Property</span><span class="tag">Federal Court Proceedings</span><span class="tag">Arbitration &amp; Mediation</span>
+  </div>
+</div></section>
+
+<section class="contact-bg" id="contact"><div class="wrap">
+  <p class="lbl">Get in Touch</p>
+  <h2 class="stitle">Contact &amp; Availability</h2>
+  <div class="divider"></div>
+  <div class="cg2">
+    <div>
+      <div class="ci2"><div class="cion">📞</div><div><strong>Phone</strong><a href="tel:+10000000000">(000) 000-0000</a></div></div>
+      <div class="ci2"><div class="cion">✉️</div><div><strong>Email</strong><a href="mailto:stephanie@example.com">stephanie@example.com</a></div></div>
+      <div class="ci2"><div class="cion">📍</div><div><strong>Location</strong><span>[Your City, State] — Available Statewide</span></div></div>
+      <div class="ci2"><div class="cion">🕐</div><div><strong>Availability</strong><span>Mon–Fri 8am–6pm &nbsp;|&nbsp; Rush requests accepted</span></div></div>
+    </div>
+    <div class="callout">
+      <h4>Ready to Book a Deposition?</h4>
+      <p>Contact me directly by phone or email to schedule a deposition, request a quote, or discuss your firm's ongoing reporting needs. I respond to all inquiries within 2 business hours.</p>
+      <br><p>For expedited or same-day requests, phone is the fastest way to reach me. Every engagement is handled professionally from scheduling through final transcript delivery.</p>
+      <br><a href="tel:+10000000000" class="btn" style="margin-top:6px">📞 &nbsp;Call Now to Book</a>
+    </div>
+  </div>
+</div></section>
+
+<div class="dl-banner no-print">
+  <h3>Save This Portfolio</h3>
+  <p>Download a print-ready version to share with your firm or keep on file.</p>
+  <button class="btn" onclick="window.print()">&#11015; &nbsp;Download / Print Portfolio</button>
+</div>
+
+<footer><p><span>Stephanie Allen</span> &nbsp;|&nbsp; Certified Court Reporter &nbsp;|&nbsp; &copy; 2025 All Rights Reserved</p></footer>
+
+<script>
+function handlePhoto(i){if(i.files&&i.files[0]){const r=new FileReader();r.onload=e=>{document.getElementById('photoDisplay').innerHTML='<img src="'+e.target.result+'" alt="Stephanie Allen">';};r.readAsDataURL(i.files[0]);}}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});});
+</script>
+</body>
+</html>
