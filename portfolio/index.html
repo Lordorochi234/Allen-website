@@ -801,7 +801,56 @@
       .nav-links { display: none; }
       .hero-stats { gap: 24px; }
     }
-  </style>
+  
+/* ===== Responsive Fixes ===== */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -809,12 +858,12 @@
 <nav>
   <div class="nav-logo">Stephanie Allen</div>
   <ul class="nav-links">
-    <li><a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#about">About</a></li>
-    <li><a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#services">Services</a></li>
-    <li><a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#rates">Rates</a></li>
-    <li><a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#preferences">Preferences</a></li>
-    <li><a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#process">Process</a></li>
-    <li><a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#rates">Rates</a></li>
+    <li><a href="#preferences">Preferences</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -843,8 +892,8 @@
         </div>
       </div>
       <div class="hero-ctas">
-        <a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#contact" class="btn-primary">Work With Me</a>
-        <a href="file:///C:/Users/Bercy/Downloads/stephanie_allen_portfolio%20(4).html#rates" class="btn-outline">View Rates</a>
+        <a href="#contact" class="btn-primary">Work With Me</a>
+        <a href="#rates" class="btn-outline">View Rates</a>
       </div>
     </div>
 
